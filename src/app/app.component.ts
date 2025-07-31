@@ -10,7 +10,7 @@ import { routes } from './app.routes';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'retailer-shop';
+  title = 'retailer-helper-frontend';
   constructor(private router: Router){}
   dashboard() {
     this.router.navigate(['home']);
