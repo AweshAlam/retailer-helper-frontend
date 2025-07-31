@@ -27,12 +27,7 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": [],
-            "server": "src/main.server.ts",
-            "prerender": true,
-            "ssr": {
-              "entry": "server.ts"
-            }
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -62,10 +57,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "retailer-shop:build:production"
+              "buildTarget": "retailer-helper-frontend:build:production"
             },
             "development": {
-              "buildTarget": "retailer-shop:build:development"
+              "buildTarget": "retailer-helper-frontend:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -73,7 +68,7 @@
         "extract-i18n": {
           "builder": "@angular/build:extract-i18n",
           "options": {
-            "buildTarget": "retailer-shop:build"
+            "buildTarget": "retailer-helper-frontend:build"
           }
         },
         "test": {
