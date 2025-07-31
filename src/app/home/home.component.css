@@ -1,0 +1,40 @@
+.home-container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 2rem;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.card-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.summary-card {
+  flex: 1 1 30%;
+  padding: 1.5rem;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 1.2rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.summary-card.today {
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+}
+.summary-card.month {
+  background: linear-gradient(135deg, #36d1dc, #5b86e5);
+}
+.summary-card.year {
+  background: linear-gradient(135deg, #ff6a00, #ee0979);
+}

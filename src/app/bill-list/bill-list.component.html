@@ -1,0 +1,40 @@
+<div class="container">
+  <h2>📄 Bill List</h2>
+
+  <input
+    type="text"
+    [(ngModel)]="searchTerm"
+    (input)="searchBills()"
+    placeholder="🔍 Search by customer name"
+    class="search-input"
+  />
+
+  <table>
+    <thead>
+      <tr>
+        <th>Customer</th>
+        <th>Date</th>
+        <th>Total</th>
+        <th>Items</th>
+        <th>🖨️ Print</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let bill of filteredBills">
+        <td>{{ bill.customerName }}</td>
+        <td>{{ bill.date | date: 'short' }}</td>
+        <td>₹{{ bill.totalAmount }}</td>
+        <td>
+          <ul>
+            <li *ngFor="let item of bill.items">
+              {{ item.itemName }} (x{{ item.itemQuantity }}) - ₹{{ item.itemPrice }}
+            </li>
+          </ul>
+        </td>
+        <td>
+          <button (click)="printBill(bill)">🖨️ Print</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

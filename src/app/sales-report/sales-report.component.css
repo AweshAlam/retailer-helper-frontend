@@ -1,0 +1,27 @@
+.sales-summary {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+}
+
+h2 {
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.card {
+  background: linear-gradient(135deg, #6366f1, #3b82f6);
+  color: white;
+  padding: 1.5rem;
+  margin: 1rem auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  max-width: 400px;
+}
+
+.card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}

@@ -1,0 +1,85 @@
+.container {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+h2 {
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.add-item-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.form-field {
+  flex: 1 1 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-field input {
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+button {
+  padding: 0.6rem 1rem;
+  border: none;
+  background-color: #1d4ed8;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: #2563eb;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 0.8rem;
+  border-bottom: 1px solid #e5e7eb;
+  text-align: left;
+  vertical-align: middle;
+}
+
+input[type="number"],
+input[type="text"] {
+  width: 100%;
+}
+
+/* ✅ Action Buttons in Table */
+td button {
+  margin-right: 0.5rem;
+  padding: 0.4rem 0.7rem;
+  font-size: 0.9rem;
+  border-radius: 4px;
+}
+
+td button:first-child {
+  background-color: #3b82f6; /* Edit - Blue */
+}
+
+td button:first-child:hover {
+  background-color: #2563eb;
+}
+
+td button:last-child {
+  background-color: #ef4444; /* Delete - Red */
+}
+
+td button:last-child:hover {
+  background-color: #dc2626;
+}

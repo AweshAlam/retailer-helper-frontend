@@ -1,0 +1,18 @@
+<div class="sales-summary">
+  <h2>📊 Sales Summary</h2>
+
+  <div class="card">
+    <h3>Today</h3>
+    <p>{{ dailySales | currency:'INR' }}</p>
+  </div>
+
+  <div class="card">
+    <h3>This Month</h3>
+    <p>{{ monthlySales | currency:'INR' }}</p>
+  </div>
+
+  <div class="card">
+    <h3>This Year</h3>
+    <p>{{ yearlySales | currency:'INR' }}</p>
+  </div>
+</div>

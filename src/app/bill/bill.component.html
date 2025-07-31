@@ -1,0 +1,113 @@
+<div class="bill-container">
+  <h2>🧾 Create New Bill</h2>
+
+  <form #billForm="ngForm" (ngSubmit)="submitBill()" novalidate>
+    <div class="form-group">
+      <label for="customerName">Customer Name</label>
+      <input
+        id="customerName"
+        name="customerName"
+        [(ngModel)]="customerName"
+        required
+        placeholder="Enter customer name"
+        #customerNameInput="ngModel"
+      />
+      <div
+        class="error"
+        *ngIf="customerNameInput.invalid && customerNameInput.touched"
+      >
+        Customer name is required.
+      </div>
+    </div>
+
+    <div *ngFor="let item of selectedItems; let i = index" class="item-row">
+      <div class="form-group">
+        <label>Item</label>
+        <select
+          [(ngModel)]="item.itemName"
+          name="itemName{{ i }}"
+          required
+          #itemNameInput="ngModel"
+        >
+          <option value="">-- Select --</option>
+          <option *ngFor="let opt of allItems" [value]="opt.itemName">
+            {{ opt.itemName }}
+          </option>
+        </select>
+        <div
+          class="error"
+          *ngIf="itemNameInput.invalid && itemNameInput.touched"
+        >
+          Item is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Quantity</label>
+        <input
+          type="number"
+          min="1"
+          [(ngModel)]="item.itemQuantity"
+          name="quantity{{ i }}"
+          required
+          #quantityInput="ngModel"
+        />
+        <div
+          class="error"
+          *ngIf="quantityInput.invalid && quantityInput.touched"
+        >
+          Quantity must be at least 1.
+        </div>
+      </div>
+
+      <div class="form-group readonly">
+        <label>Price</label>
+        <input
+          type="text"
+          [value]="getPrice(item.itemName) | currency : 'INR'"
+          readonly
+        />
+      </div>
+
+      <button type="button" (click)="removeItem(i)" class="btn remove">
+        🗑️
+      </button>
+    </div>
+
+    <div class="error" *ngIf="selectedItems.length === 0"></div>
+
+    <div class="actions">
+      <button type="button" (click)="addItem()" class="btn add">
+        ➕ Add Item
+      </button>
+    </div>
+
+    <div class="total">
+      <strong>Total:</strong> {{ getTotal() | currency : "INR" }}
+    </div>
+
+    <label>Payment Method:</label>
+    <select [(ngModel)]="paymentMethod" name="paymentMethod">
+      <option value="cash">Cash</option>
+      <option value="online">Online (PhonePe)</option>
+    </select>
+
+    <div *ngIf="paymentMethod === 'online'">
+      <h4>📱 Scan QR to Pay</h4>
+      <img [src]="getQRCodeUrl()" alt="QR Code" width="250" height="250" />
+      <br />
+      <button type="button" (click)="markAsPaid()">I have paid</button>
+    </div>
+
+    <button
+      class="btn submit"
+      [disabled]="
+        billForm.invalid ||
+        selectedItems.length === 0 ||
+        (paymentMethod === 'online' && !paymentCompleted)
+      "
+    >
+      Submit Bill
+    </button>
+  </form>
+</div>

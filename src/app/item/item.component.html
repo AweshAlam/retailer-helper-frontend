@@ -1,0 +1,56 @@
+<div class="container">
+  <h2>🧾 Item Inventory</h2>
+
+  <!-- 🔹 Add New Item Form -->
+<div class="add-item-form">
+  <div class="form-field">
+    <label>Name</label>
+    <input placeholder="Name" [(ngModel)]="newItem.itemName" />
+  </div>
+  <div class="form-field">
+    <label>Quantity</label>
+    <input type="number" placeholder="Qty" [(ngModel)]="newItem.itemQuantity" />
+  </div>
+  <div class="form-field">
+    <label>Price</label>
+    <input type="number" placeholder="Price" [(ngModel)]="newItem.itemPrice" />
+  </div>
+  <div class="form-field">
+    <label>&nbsp;</label> <!-- spacer for alignment -->
+    <button (click)="addItem()">➕ Add Item</button>
+  </div>
+</div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Qty</th>
+        <th>Price</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of items; let i = index">
+        <ng-container *ngIf="editingIndex === i; else readRow">
+          <td><input [(ngModel)]="editedItem.itemName" /></td>
+          <td><input type="number" [(ngModel)]="editedItem.itemQuantity" /></td>
+          <td><input type="number" [(ngModel)]="editedItem.itemPrice" /></td>
+          <td>
+            <button (click)="updateItem()">💾 Save</button>
+            <button (click)="cancelEdit()">❌ Cancel</button>
+          </td>
+        </ng-container>
+        <ng-template #readRow>
+          <td>{{ item.itemName }}</td>
+          <td>{{ item.itemQuantity }}</td>
+          <td>{{ item.itemPrice }}</td>
+          <td>
+            <button (click)="editItem(i)">✏️ Edit</button>
+            <button (click)="deleteItem(item.itemName)">🗑️ Delete</button>
+          </td>
+        </ng-template>
+      </tr>
+    </tbody>
+  </table>
+</div>

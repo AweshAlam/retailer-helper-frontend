@@ -1,0 +1,18 @@
+<div class="home-container">
+  <h1>🏪 Welcome to Retailer Shop Dashboard</h1>
+
+  <div class="card-container">
+    <div class="summary-card today">
+      <h3>Today</h3>
+      <p>{{ dailySales | currency : "INR" }}</p>
+    </div>
+    <div class="summary-card month">
+      <h3>This Month</h3>
+      <p>{{ monthlySales | currency : "INR" }}</p>
+    </div>
+    <div class="summary-card year">
+      <h3>This Year</h3>
+      <p>{{ yearlySales | currency : "INR" }}</p>
+    </div>
+  </div>
+</div>
