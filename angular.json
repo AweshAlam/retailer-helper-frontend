@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "retailer-shop": {
+    "retailer-helper-frontend": {
       "projectType": "application",
       "schematics": {},
       "root": "",
