@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class ItemService {
-  private baseUrl = 'http://localhost:8080/item';
+  private baseUrl = 'https://retailer-helper-backend.onrender.com/item';
 
   constructor(private http: HttpClient) {}
 
