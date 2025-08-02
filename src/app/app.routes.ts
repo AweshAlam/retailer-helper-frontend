@@ -6,11 +6,11 @@ import { BillListComponent } from './bill-list/bill-list.component';
 import { SalesReportComponent } from './sales-report/sales-report.component';
 
 export const routes: Routes = [
-    { path: '', redirectTo:'home', pathMatch:'full'},
-    { path: 'home', component: HomeComponent },
+    { path: '', redirectTo:'', pathMatch:'full'},
+    { path: '', component: HomeComponent },
     { path: 'bill', component: BillComponent },
     { path: 'item', component: ItemComponent },
     { path: 'bills', component: BillListComponent },
     { path: 'report', component: SalesReportComponent },
-    { path: '**', redirectTo: 'home' }
+    { path: '**', redirectTo: '' }
 ];
