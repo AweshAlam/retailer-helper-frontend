@@ -13,7 +13,7 @@ export class AppComponent {
   title = 'retailer-helper-frontend';
   constructor(private router: Router){}
   dashboard() {
-    this.router.navigate(['home']);
+    this.router.navigate(['']);
   }
   item() {
     this.router.navigate(['item']);
