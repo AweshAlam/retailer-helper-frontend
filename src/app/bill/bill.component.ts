@@ -82,11 +82,6 @@ export class BillComponent implements OnInit {
     });
   }
 
-  // ✅ Simulate QR display
-  getQRCodeUrl(): string {
-    return `upi://pay?aweshalam.@ybl&pn=Retailer%20Shop&am=${this.getTotal()}&cu=INR`; // Replace with actual PhonePe UPI
-  }
-
   markAsPaid(): void {
     this.paymentCompleted = true;
     alert('✅ Payment marked as completed. You can now submit.');

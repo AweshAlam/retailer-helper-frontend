@@ -1,40 +1,51 @@
-<div class="container">
-  <h2>📄 Bill List</h2>
+<div class="bill-list-container">
+  <div class="card bill-list-card">
+    <h2 class="card-title">Bill List</h2>
 
-  <input
-    type="text"
-    [(ngModel)]="searchTerm"
-    (input)="searchBills()"
-    placeholder="🔍 Search by customer name"
-    class="search-input"
-  />
+    <div class="search-bar">
+      <input
+        type="text"
+        [(ngModel)]="searchTerm"
+        (input)="searchBills()"
+        placeholder="🔍 Search by customer name"
+        class="search-input"
+      />
+    </div>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Customer</th>
-        <th>Date</th>
-        <th>Total</th>
-        <th>Items</th>
-        <th>🖨️ Print</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let bill of filteredBills">
-        <td>{{ bill.customerName }}</td>
-        <td>{{ bill.date | date: 'short' }}</td>
-        <td>₹{{ bill.totalAmount }}</td>
-        <td>
-          <ul>
-            <li *ngFor="let item of bill.items">
-              {{ item.itemName }} (x{{ item.itemQuantity }}) - ₹{{ item.itemPrice }}
-            </li>
-          </ul>
-        </td>
-        <td>
-          <button (click)="printBill(bill)">🖨️ Print</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+    <div class="table-container">
+      <table class="bill-table">
+        <thead>
+          <tr>
+            <th>Customer</th>
+            <th>Date</th>
+            <th class="text-right">Total</th>
+            <th>Items</th>
+            <th class="action-column">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let bill of filteredBills">
+            <td>{{ bill.customerName }}</td>
+            <td>{{ bill.date | date: 'short' }}</td>
+            <td class="text-right">{{ bill.totalAmount | currency: 'INR' }}</td>
+            <td>
+              <ul class="item-list">
+                <li *ngFor="let item of bill.items">
+                  {{ item.itemName }} (x{{ item.itemQuantity }})
+                </li>
+              </ul>
+            </td>
+            <td class="actions-cell">
+              <button class="print-btn" (click)="printBill(bill)">
+                <span class="icon">🖨️</span> Print
+              </button>
+            </td>
+          </tr>
+          <tr *ngIf="filteredBills.length === 0">
+            <td colspan="5" class="no-results">No bills found.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>

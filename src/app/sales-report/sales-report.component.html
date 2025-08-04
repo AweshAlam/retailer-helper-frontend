@@ -1,18 +1,22 @@
-<div class="sales-summary">
-  <h2>📊 Sales Summary</h2>
-
+<div class="sales-summary-container">
   <div class="card">
-    <h3>Today</h3>
-    <p>{{ dailySales | currency:'INR' }}</p>
-  </div>
+    <h2 class="page-title">Sales Summary</h2>
 
-  <div class="card">
-    <h3>This Month</h3>
-    <p>{{ monthlySales | currency:'INR' }}</p>
-  </div>
+    <div class="summary-cards">
+      <div class="summary-card">
+        <h3 class="card-title">Today's Sales</h3>
+        <p class="sales-value">{{ dailySales | currency : "INR" }}</p>
+      </div>
 
-  <div class="card">
-    <h3>This Year</h3>
-    <p>{{ yearlySales | currency:'INR' }}</p>
+      <div class="summary-card">
+        <h3 class="card-title">This Month</h3>
+        <p class="sales-value">{{ monthlySales | currency : "INR" }}</p>
+      </div>
+
+      <div class="summary-card">
+        <h3 class="card-title">This Year</h3>
+        <p class="sales-value">{{ yearlySales | currency : "INR" }}</p>
+      </div>
+    </div>
   </div>
 </div>
