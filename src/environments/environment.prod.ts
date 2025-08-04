@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiBaseUrl: 'https://yourapp.com'
+  apiBaseUrl: 'https://retailer-helper-backend.onrender.com/'
 };
